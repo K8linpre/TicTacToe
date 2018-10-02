@@ -21,6 +21,12 @@ namespace TicTacToe
         Random rand = new Random();
         int PlayerWins = 0;
         int ComputerWins = 0;
+        /*    int Computerscore;
+            int Playerscore;
+            int Computermoves = 0;
+            int Playermoves = 0;
+            int turn = 1;
+            int numCount = 0;*/
         public Form8()
         {
             InitializeComponent();
@@ -63,7 +69,6 @@ namespace TicTacToe
                 if (X is Button && X.Tag == "play")
                 {
                     ((Button)X).Enabled = true;
-                    ((Button)X).Text = "?";
                 }
             }
             loadbuttons();
@@ -82,8 +87,10 @@ namespace TicTacToe
                 AImoves.Stop();
                 MessageBox.Show("Player Wins");
                 PlayerWins++;
-                label7.Text = "Player Wins- " + PlayerWins;
+                label7.Text = PlayerWins.ToString();
+                ClearGame();
                 resetGame();
+                score();
             }
             else if (button1.Text == "O" && button2.Text == "O" && button3.Text == "O"
                 || button4.Text == "O" && button5.Text == "O" && button6.Text == "O"
@@ -96,12 +103,23 @@ namespace TicTacToe
                 AImoves.Stop();
                 MessageBox.Show("Computer Wins");
                 ComputerWins++;
-                label7.Text = "AI Wins- " + ComputerWins;
+                label8.Text = ComputerWins.ToString();
+                ClearGame();
                 resetGame();
+                score();
             }
         }
         public void ClearGame()
         {
+            button1.Enabled = true;
+            button2.Enabled = true;
+            button3.Enabled = true;
+            button4.Enabled = true;
+            button5.Enabled = true;
+            button6.Enabled = true;
+            button7.Enabled = true;
+            button8.Enabled = true;
+            button9.Enabled = true;
             button1.Text = "";
             button2.Text = "";
             button3.Text = "";
@@ -111,12 +129,43 @@ namespace TicTacToe
             button7.Text = "";
             button8.Text = "";
             button9.Text = "";
-            Computermoves = 0;
-            Playermoves = 0;
-            turn = 1;
-            playerscore1.Text = player1score.ToString();
-            playerscore2.Text = player2score.ToString();
+            /*  Computermoves = 0;
+                Playermoves = 0;
+                turn = 1;
+                Computerscore1.Text = Computerscore.ToString();
+                Playerscore1.Text = Playerscore.ToString();*/
 
+        }
+        public void GameOver()
+        {
+            Form6 GameOver = new Form6();
+            this.Hide();
+            GameOver.ShowDialog();
+            GameOver.FormClosed += new FormClosedEventHandler(cl_FormClosed);
+        }
+        void cl_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+        public void score()
+        {
+            if (PlayerWins == 3)
+
+            {
+                MessageBox.Show("Player Wins Overall!" + Environment.NewLine + "Player Score: " + PlayerWins + " match(s)"
+                    + Environment.NewLine + "Computer Score: " + ComputerWins + " match(s)");
+                GameOver();
+            }
+            else if (ComputerWins == 3)
+            {
+                MessageBox.Show("Computer Wins Overall!" + Environment.NewLine + "Player Score: " + PlayerWins + " match(s)"
+                    + Environment.NewLine + "Computer Score: " + ComputerWins + " match(s)");
+                GameOver();
+            }
+            else
+            {
+                ClearGame();
+            }
         }
     }
 }
