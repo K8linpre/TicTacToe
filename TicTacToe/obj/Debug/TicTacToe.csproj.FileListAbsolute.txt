@@ -12,5 +12,4 @@ D:\Apprentice Projects\TicTacToe\TicTacToe\obj\Debug\TicTacToe.pdb
 D:\Apprentice Projects\TicTacToe\TicTacToe\obj\Debug\TicTacToe.Form4.resources
 D:\Apprentice Projects\TicTacToe\TicTacToe\obj\Debug\TicTacToe.Form5.resources
 D:\Apprentice Projects\TicTacToe\TicTacToe\obj\Debug\TicTacToe.Form6.resources
-D:\Apprentice Projects\TicTacToe\TicTacToe\obj\Debug\TicTacToe.Form7.resources
 D:\Apprentice Projects\TicTacToe\TicTacToe\obj\Debug\TicTacToe.Form8.resources

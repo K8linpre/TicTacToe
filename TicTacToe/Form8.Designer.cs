@@ -48,11 +48,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.AImoves = new System.Windows.Forms.Timer(this.components);
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.Playermove1 = new System.Windows.Forms.Label();
+            this.Computermove1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -260,9 +267,9 @@
             this.label6.Location = new System.Drawing.Point(47, 15);
             this.label6.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 13);
+            this.label6.Size = new System.Drawing.Size(36, 13);
             this.label6.TabIndex = 1;
-            this.label6.Text = "Computer";
+            this.label6.Text = "Player";
             // 
             // button6
             // 
@@ -275,17 +282,70 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.playerClick);
             // 
+            // AImoves
+            // 
+            this.AImoves.Interval = 1000;
+            this.AImoves.Tick += new System.EventHandler(this.AImove);
+            // 
             // flowLayoutPanel3
             // 
+            this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel4);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(327, 277);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(156, 44);
             this.flowLayoutPanel3.TabIndex = 13;
             // 
-            // AImoves
+            // flowLayoutPanel4
             // 
-            this.AImoves.Interval = 1000;
-            this.AImoves.Tick += new System.EventHandler(this.AImove);
+            this.flowLayoutPanel4.Controls.Add(this.label2);
+            this.flowLayoutPanel4.Controls.Add(this.label9);
+            this.flowLayoutPanel4.Controls.Add(this.Playermove1);
+            this.flowLayoutPanel4.Controls.Add(this.Computermove1);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(155, 44);
+            this.flowLayoutPanel4.TabIndex = 14;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 3);
+            this.label2.Margin = new System.Windows.Forms.Padding(10, 3, 3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "P Moves";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(87, 3);
+            this.label9.Margin = new System.Windows.Forms.Padding(25, 3, 3, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(49, 13);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "C Moves";
+            // 
+            // Playermove1
+            // 
+            this.Playermove1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.Playermove1.AutoSize = true;
+            this.Playermove1.Location = new System.Drawing.Point(22, 19);
+            this.Playermove1.Margin = new System.Windows.Forms.Padding(22, 3, 3, 0);
+            this.Playermove1.Name = "Playermove1";
+            this.Playermove1.Size = new System.Drawing.Size(13, 13);
+            this.Playermove1.TabIndex = 4;
+            this.Playermove1.Text = "0";
+            // 
+            // Computermove1
+            // 
+            this.Computermove1.AutoSize = true;
+            this.Computermove1.Location = new System.Drawing.Point(108, 19);
+            this.Computermove1.Margin = new System.Windows.Forms.Padding(70, 3, 3, 0);
+            this.Computermove1.Name = "Computermove1";
+            this.Computermove1.Size = new System.Drawing.Size(13, 13);
+            this.Computermove1.TabIndex = 5;
+            this.Computermove1.Text = "0";
             // 
             // Form8
             // 
@@ -302,6 +362,9 @@
             this.flowLayoutPanel1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel4.ResumeLayout(false);
+            this.flowLayoutPanel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,7 +391,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Timer AImoves;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label Playermove1;
+        private System.Windows.Forms.Label Computermove1;
     }
 }

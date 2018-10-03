@@ -23,8 +23,14 @@ namespace TicTacToe
         int click9 = 0;
         int player1score;
         int player2score;
+        int play2;
+        int play3;
         int player1moves = 0;
         int player2moves = 0;
+        public static int A1;
+        public static int B1;
+        public static int A2;
+        public static int B2;
         int turn = 1;
         int numCount = 0;
         public Form5()
@@ -33,9 +39,7 @@ namespace TicTacToe
         }
 
         private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
+        { }
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -312,15 +316,14 @@ namespace TicTacToe
                 if (button1.Text == button3.Text && button1.Text == button2.Text)
                 {
                     if (button1.Text == "X")
-                    {
-                        
+                    {  
                         player1score++;
                         MessageBox.Show("Player 1 Wins " + player1score + " match(s) in " + player1moves + " moves" + Environment.NewLine + "Player 2 wins " + player2score + " match(s)");
                         score();
                     }
                     else
                     {
-                        
+
                         player2score++;
                         MessageBox.Show("Player 2 Wins " + player2score + " match(s) in " + player2moves + " moves" + Environment.NewLine + "Player 1 wins " + player1score + " match(s)");
                         score();
@@ -452,12 +455,41 @@ namespace TicTacToe
                     }
                 }             
             }
-            
+            if (button3.Text != "" && button5.Text != "" && button7.Text != "")
+            {
+                if (button3.Text == button5.Text && button3.Text == button7.Text)
+                {
+                    if (button3.Text == "X")
+                    {
+
+                        player1score++;
+                        MessageBox.Show("Player 1 Wins " + player1score + " match(s) in " + player1moves + " moves" + Environment.NewLine + "Player 2 wins " + player2score + " match(s)");
+                        score();
+                    }
+                    else
+                    {
+
+                        player2score++;
+                        MessageBox.Show("Player 2 Wins " + player2score + " match(s) in " + player2moves + " moves" + Environment.NewLine + "Player 1 wins " + player1score + " match(s)");
+                        score();
+                    }
+                }
+            }
+            if (button1.Text != "" && button2.Text != "" && button3.Text != "" &&
+                    button4.Text != "" && button5.Text != "" && button6.Text != "" &&
+                    button7.Text != "" && button8.Text != "" && button9.Text != "")
+            {
+                MessageBox.Show("It's a Draw");
+                ClearGame();
+            }
+
         }
         public void GameOver() { 
         Form6 GameOver= new Form6();
         this.Hide();
         GameOver.ShowDialog();
+            play2 = player1score;
+            play3 = player2score;
         GameOver.FormClosed += new FormClosedEventHandler(cl_FormClosed);
         }
         void cl_FormClosed(object sender, FormClosedEventArgs e)
@@ -488,24 +520,49 @@ namespace TicTacToe
             player1moves = 0;
             player2moves = 0;
             turn = 1;
+            playermove1.Text = player1moves.ToString();
+            playermove2.Text = player2moves.ToString();
             playerscore1.Text = player1score.ToString();
             playerscore2.Text = player2score.ToString();
-            
+
         }
 
         public void score()
         {
-            if (player1score == 3)
+            if (player1score == 2 && player2score == 1
+                ||player1score == 3 && player2score == 0
+                ||play2 == 2 && play3 == 1
+                ||play2 == 3 && play3 == 0)
 
             {
                 MessageBox.Show("Player 1 Wins Overall!" + Environment.NewLine + "Player 1 Score: " + player1score + " match(s)"
                     + Environment.NewLine + "Player 2 Score: " + player2score + " match(s)");
+                play2 = A2;
+                play3 = B2;
+                A1 = player1score;
+                B1 = player2score;                
+                player1score = 0;
+                player2score = 0;
+
+                playerscore1.Text = player1score.ToString();
+                playerscore2.Text = player2score.ToString();
                 GameOver();
             }
-            else if (player2score == 3)
+            else if (player2score == 3 && player1score == 0
+                ||player2score == 2 && player1score == 1
+                || play3 == 2 && play2 == 1
+                || play3 == 3 && play2 == 0)
             {
                 MessageBox.Show("Player 2 Wins Overall!" + Environment.NewLine + "Player 1 Score: " + player1score + " match(s)"
                     + Environment.NewLine + "Player 2 Score: " + player2score + " match(s)");
+                A2 = play2;
+                B2 = play3;
+                A1 = player1score;
+                B1 = player2score;  
+                player1score = 0;
+                player2score = 0;
+                playerscore1.Text = player1score.ToString();
+                playerscore2.Text = player2score.ToString();
                 GameOver();
             }
             else
@@ -513,16 +570,7 @@ namespace TicTacToe
                 ClearGame();
             }
         }
-        public void Draw()
-        {
-            if (numCount == 8)
-            {
-                MessageBox.Show("Draw!");
-                ClearGame();
-            }
-        }
         
-
         private void label1_Click(object sender, EventArgs e)
         {
 

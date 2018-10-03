@@ -19,60 +19,75 @@ namespace TicTacToe
         Player currentPlayer;
         List<Button> buttons;
         Random rand = new Random();
-        int PlayerWins = 0;
-        int ComputerWins = 0;
-        /*    int Computerscore;
-            int Playerscore;
-            int Computermoves = 0;
-            int Playermoves = 0;
-            int turn = 1;
-            int numCount = 0;*/
+        int Computerscore = 0;
+        int Playerscore = 0;
+        int Computermoves = 0;
+        int Playermoves = 0;
         public Form8()
         {
             InitializeComponent();
-            resetGame();
+            ClearGame();
+            AImoves.Start();
         }
         
         private void loadbuttons()
         {
             buttons = new List<Button> { button1, button2, button3, button4, button5, button6, button7, button8, button9 };
+
         }
-        private void playerClick(object sender, EventArgs e)
-        {
-            var button = (Button)sender;
-            currentPlayer = Player.X;
-            button.Text = currentPlayer.ToString();
-            button.Enabled = false;
-            buttons.Remove(button);
-            Check();
-            AImoves.Start();
-        }
+
         private void AImove(object sender, EventArgs e)
         {
             if (buttons.Count > 0)
             {
                 int index = rand.Next(buttons.Count);
                 buttons[index].Enabled = false;
-
+                buttons[index].ForeColor = Color.Black;
+                buttons[index].BackColor = Color.Transparent;
                 currentPlayer = Player.O;
+                label6.Text = "Player";
                 buttons[index].Text = currentPlayer.ToString();
                 buttons.RemoveAt(index);
+                Computermoves++;
+                Computermove1.Text = Computermoves.ToString();
                 Check();
+                
                 AImoves.Stop();
             }
         }
-
-        private void resetGame()
+        private void playerClick(object sender, EventArgs e)
         {
-            foreach (Control X in this.Controls)
-            {
-                if (X is Button && X.Tag == "play")
-                {
-                    ((Button)X).Enabled = true;
-                }
-            }
-            loadbuttons();
+            var button = (Button)sender;
+            currentPlayer = Player.X;
+            label6.Text = "Computer";
+            button.Text = currentPlayer.ToString();
+            button.Enabled = false;
+            button.ForeColor = Color.Black;
+            button.BackColor = Color.Transparent;
+            buttons.Remove(button);
+            Playermoves++;
+            Playermove1.Text = Playermoves.ToString();
+     //     WinorDraw();
+            Check();
+            
+            AImoves.Start();
+
         }
+ /*     private void WinorDraw()
+        {
+            if (button1.Text == "" && button2.Text == "X" && button3.Text == "X"
+                || button1.Text == "" && button4.Text == "X" && button7.Text == "X"
+                || button1.Text == "" && button5.Text == "X" && button9.Text == "X")
+            {
+                buttons = new List<Button> { button2 };
+            }
+            if (button1.Text == "X" && button2.Text == "" && button3.Text == "X"
+                || button2.Text == "" && button5.Text == "X" && button9.Text == "X")
+            {
+                buttons = new List<Button> { button2 };
+            }
+        }     */
+
         private void Check()
         {
             if (button1.Text == "X" && button2.Text == "X" && button3.Text == "X"
@@ -85,11 +100,15 @@ namespace TicTacToe
                 || button3.Text == "X" && button5.Text == "X" && button7.Text == "X")
             {
                 AImoves.Stop();
-                MessageBox.Show("Player Wins");
-                PlayerWins++;
-                label7.Text = PlayerWins.ToString();
+                Playerscore++;
+
+
+                label7.Text = Playerscore.ToString();
+                MessageBox.Show("Player Wins " + Playerscore + " match(s) in " + Playermoves + " moves" + Environment.NewLine + "Computer wins " + Computerscore + " match(s)");
+                Playermoves = 0;
+
                 ClearGame();
-                resetGame();
+                
                 score();
             }
             else if (button1.Text == "O" && button2.Text == "O" && button3.Text == "O"
@@ -101,13 +120,46 @@ namespace TicTacToe
                 || button1.Text == "O" && button5.Text == "O" && button9.Text == "O"                || button3.Text == "O" && button5.Text == "O" && button7.Text == "O")
             {
                 AImoves.Stop();
-                MessageBox.Show("Computer Wins");
-                ComputerWins++;
-                label8.Text = ComputerWins.ToString();
+                Computerscore++;
+                
+                label8.Text = Computerscore.ToString();
+                MessageBox.Show("Computer Wins " + Computerscore + " match(s) in " + Computermoves + " moves" + Environment.NewLine + "Player wins " + Playerscore + " match(s)");
+
                 ClearGame();
-                resetGame();
+                
                 score();
-            }
+            }
+            else if (button1.Text != "" && button2.Text != "" && button3.Text != "" &&
+                    button4.Text != "" && button5.Text != "" && button6.Text != "" &&
+                    button7.Text != "" && button8.Text != "" && button9.Text != "")
+                {
+                MessageBox.Show("It's a Draw");
+                ClearGame();
+                
+            }
+
+            }
+        public void score()
+        {
+            if (Computerscore == 2 && Playerscore == 1
+                || Computerscore == 3 && Playerscore == 0)
+
+            {
+                MessageBox.Show("Computer Wins Overall!" + Environment.NewLine + "Computer Score: " + Computerscore + " match(s)"
+                    + Environment.NewLine + "Player Score: " + Playerscore + " match(s)");
+                GameOver();
+            }
+            else if (Playerscore == 3 && Computerscore == 0
+                || Playerscore == 2 && Computerscore == 1)
+            {
+                MessageBox.Show("Player Wins Overall!" + Environment.NewLine + "Player Score: " + Playerscore + " match(s)"
+                    + Environment.NewLine + "Computer Score: " + Computerscore + " match(s)");
+                GameOver();
+            }
+            else
+            {
+                ClearGame();
+            }
         }
         public void ClearGame()
         {
@@ -129,11 +181,11 @@ namespace TicTacToe
             button7.Text = "";
             button8.Text = "";
             button9.Text = "";
-            /*  Computermoves = 0;
-                Playermoves = 0;
-                turn = 1;
-                Computerscore1.Text = Computerscore.ToString();
-                Playerscore1.Text = Playerscore.ToString();*/
+            Computermoves = 0;
+            Playermoves = 0;
+            Playermove1.Text = Playermoves.ToString();
+            Computermove1.Text = Computermoves.ToString();
+            loadbuttons();
 
         }
         public void GameOver()
@@ -147,26 +199,7 @@ namespace TicTacToe
         {
             Application.Exit();
         }
-        public void score()
-        {
-            if (PlayerWins == 3)
 
-            {
-                MessageBox.Show("Player Wins Overall!" + Environment.NewLine + "Player Score: " + PlayerWins + " match(s)"
-                    + Environment.NewLine + "Computer Score: " + ComputerWins + " match(s)");
-                GameOver();
-            }
-            else if (ComputerWins == 3)
-            {
-                MessageBox.Show("Computer Wins Overall!" + Environment.NewLine + "Player Score: " + PlayerWins + " match(s)"
-                    + Environment.NewLine + "Computer Score: " + ComputerWins + " match(s)");
-                GameOver();
-            }
-            else
-            {
-                ClearGame();
-            }
-        }
     }
 }
 //https://www.mooict.com/wp-content/uploads/2017/10/c-sharp-create-a-tic-tac-toe-game-play-against-ai-opponent20.pdf
