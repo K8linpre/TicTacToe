@@ -124,9 +124,8 @@ namespace TicTacToe
                 
                 label8.Text = Computerscore.ToString();
                 MessageBox.Show("Computer Wins " + Computerscore + " match(s) in " + Computermoves + " moves" + Environment.NewLine + "Player wins " + Playerscore + " match(s)");
-
+                Computermoves = 0;
                 ClearGame();
-                
                 score();
             }
             else if (button1.Text != "" && button2.Text != "" && button3.Text != "" &&
