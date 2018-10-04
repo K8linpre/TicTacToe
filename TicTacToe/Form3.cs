@@ -49,12 +49,6 @@ namespace TicTacToe
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-            foreach (var game in Program.CompletedGames)
-            {
-                label3.Text += $" \r\n Game {game.GameId} \r\n Player 1 Score {game.PlayerScore} \r\n Player 2 Score {game.ComputerScore}";
-            }
-        }
+
     }
 }

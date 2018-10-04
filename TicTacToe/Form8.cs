@@ -45,7 +45,7 @@ namespace TicTacToe
         {
             var button = (Button)sender;
             currentPlayer = Player.X;
-            label6.Text = "Computer";
+            label6.Text = "Player";
             button.Text = currentPlayer.ToString();
             button.Enabled = false;
             button.ForeColor = Color.Black;
@@ -68,7 +68,7 @@ namespace TicTacToe
                 buttons[index].ForeColor = Color.Black;
                 buttons[index].BackColor = Color.Transparent;
                 currentPlayer = Player.O;
-                label6.Text = "Player";
+                label6.Text = "Computer";
                 buttons[index].Text = currentPlayer.ToString();
                 buttons.RemoveAt(index);
                 Computermoves++;
@@ -87,10 +87,11 @@ namespace TicTacToe
                     button1.Text = "O";
                     button1.Enabled = false;
                     buttons.Remove(button1);
+                    
                 }
             }
-            if (button1.Text == "X" && button2.Text == "" && button3.Text == "X"
-                || button2.Text == "" && button5.Text == "X" && button9.Text == "X")
+             else if (button1.Text == "X" && button2.Text == "" && button3.Text == "X"
+                || button2.Text == "" && button5.Text == "X" && button8.Text == "X")
             {
                 if (buttons.Contains(button2))
                 {
@@ -99,7 +100,7 @@ namespace TicTacToe
                     buttons.Remove(button2);
                 }
             }
-            if (button1.Text == "X" && button2.Text == "X" && button3.Text == ""
+            else if (button1.Text == "X" && button2.Text == "X" && button3.Text == ""
                 || button3.Text == "" && button5.Text == "X" && button7.Text == "X"
                 || button3.Text == "" && button6.Text == "X" && button9.Text == "X")
             {
@@ -110,7 +111,7 @@ namespace TicTacToe
                     buttons.Remove(button3);
                 }
             }
-            if (button4.Text == "" && button5.Text == "X" && button6.Text == "X"
+            else if (button4.Text == "" && button5.Text == "X" && button6.Text == "X"
                 || button1.Text == "X" && button4.Text == "" && button7.Text == "X")
             {
                 if (buttons.Contains(button4))
@@ -120,7 +121,7 @@ namespace TicTacToe
                     buttons.Remove(button4);
                 }
             }
-            if (button4.Text == "X" && button5.Text == "" && button6.Text == "X"
+            else if (button4.Text == "X" && button5.Text == "" && button6.Text == "X"
                  || button1.Text == "X" && button5.Text == "" && button9.Text == "X"
                  || button3.Text == "X" && button5.Text == "" && button7.Text == "X")
             {
@@ -131,7 +132,7 @@ namespace TicTacToe
                     buttons.Remove(button5);
                 }
             }
-            if (button4.Text == "X" && button5.Text == "X" && button6.Text == ""
+            else if (button4.Text == "X" && button5.Text == "X" && button6.Text == ""
                  || button3.Text == "X" && button6.Text == "" && button9.Text == "X")
             {
                 if (buttons.Contains(button6))
@@ -141,7 +142,7 @@ namespace TicTacToe
                     buttons.Remove(button6);
                 }
             }
-            if (button7.Text == "" && button8.Text == "X" && button9.Text == "X"
+            else if (button7.Text == "" && button8.Text == "X" && button9.Text == "X"
                 || button1.Text == "X" && button4.Text == "X" && button7.Text == ""
                 || button3.Text == "X" && button5.Text == "X" && button7.Text == "")
             {
@@ -152,7 +153,7 @@ namespace TicTacToe
                     buttons.Remove(button7);
                 }
             }
-            if (button7.Text == "X" && button8.Text == "" && button9.Text == "X"
+            else if (button7.Text == "X" && button8.Text == "" && button9.Text == "X"
                 || button2.Text == "X" && button5.Text == "X" && button8.Text == "")
             {
                 if (buttons.Contains(button8))
@@ -162,9 +163,105 @@ namespace TicTacToe
                     buttons.Remove(button8);
                 }
             }
-            if (button7.Text == "X" && button8.Text == "X" && button9.Text == ""
+            else if (button7.Text == "X" && button8.Text == "X" && button9.Text == ""
                 || button1.Text == "X" && button5.Text == "X" && button9.Text == ""
                 || button3.Text == "X" && button6.Text == "X" && button9.Text == "")
+            {
+                if (buttons.Contains(button9))
+                {
+                    button9.Text = "O";
+                    button9.Enabled = false;
+                    buttons.Remove(button9);
+                }
+            }
+            else if (button1.Text == "" && button2.Text == "O" && button3.Text == "O"
+                || button1.Text == "" && button4.Text == "O" && button7.Text == "O"
+                || button1.Text == "" && button5.Text == "O" && button9.Text == "O")
+            {
+                if (buttons.Contains(button1))
+                {
+                    button1.Text = "O";
+                    button1.Enabled = false;
+                    buttons.Remove(button1);
+
+                }
+            }
+            else if (button1.Text == "O" && button2.Text == "" && button3.Text == "O"
+                || button2.Text == "" && button5.Text == "O" && button8.Text == "O")
+            {
+                if (buttons.Contains(button2))
+                {
+                    button2.Text = "O";
+                    button2.Enabled = false;
+                    buttons.Remove(button2);
+                }
+            }
+            else if (button1.Text == "O" && button2.Text == "X" && button3.Text == ""
+                || button3.Text == "" && button5.Text == "O" && button7.Text == "O"
+                || button3.Text == "" && button6.Text == "O" && button9.Text == "O")
+            {
+                if (buttons.Contains(button3))
+                {
+                    button3.Text = "O";
+                    button3.Enabled = false;
+                    buttons.Remove(button3);
+                }
+            }
+            else if (button4.Text == "" && button5.Text == "O" && button6.Text == "O"
+                || button1.Text == "O" && button4.Text == "" && button7.Text == "O")
+            {
+                if (buttons.Contains(button4))
+                {
+                    button4.Text = "O";
+                    button4.Enabled = false;
+                    buttons.Remove(button4);
+                }
+            }
+            else if (button4.Text == "O" && button5.Text == "" && button6.Text == "O"
+                 || button1.Text == "O" && button5.Text == "" && button9.Text == "O"
+                 || button3.Text == "O" && button5.Text == "" && button7.Text == "O")
+            {
+                if (buttons.Contains(button5))
+                {
+                    button5.Text = "O";
+                    button5.Enabled = false;
+                    buttons.Remove(button5);
+                }
+            }
+            else if (button4.Text == "O" && button5.Text == "O" && button6.Text == ""
+                 || button3.Text == "O" && button6.Text == "" && button9.Text == "O")
+            {
+                if (buttons.Contains(button6))
+                {
+                    button6.Text = "O";
+                    button6.Enabled = false;
+                    buttons.Remove(button6);
+                }
+            }
+            else if (button7.Text == "" && button8.Text == "O" && button9.Text == "O"
+                || button1.Text == "O" && button4.Text == "O" && button7.Text == ""
+                || button3.Text == "O" && button5.Text == "O" && button7.Text == "")
+            {
+                if (buttons.Contains(button7))
+                {
+                    button7.Text = "O";
+                    button7.Enabled = false;
+                    buttons.Remove(button7);
+                }
+            }
+            else if (button7.Text == "O" && button8.Text == "" && button9.Text == "O"
+                || button2.Text == "O" && button5.Text == "O" && button8.Text == "")
+            {
+                if (buttons.Contains(button8))
+                {
+                    button8.Text = "O";
+                    button8.Enabled = false;
+                    buttons.Remove(button8);
+                }
+            }
+            else if (button7.Text == "O" && button8.Text == "O" && button9.Text == ""
+                || button1.Text == "O" && button5.Text == "O" && button9.Text == ""
+                || button3.Text == "O" && button6.Text == "O" && button9.Text == "")
             {
                 if (buttons.Contains(button9))
                 {
@@ -277,8 +374,8 @@ namespace TicTacToe
         }
         public void GameOver()
         {
-            CurrentGame.PlayerScore = Playerscore;
-            CurrentGame.ComputerScore = Computerscore;
+            CurrentGame.Player1Score = Playerscore;
+            CurrentGame.Player2Score = Computerscore;
             Program.CompletedGames.Add(CurrentGame);
             CurrentGame = new Games
             {

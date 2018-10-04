@@ -31,14 +31,14 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,6 +81,16 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel3);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 57);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(429, 213);
+            this.flowLayoutPanel1.TabIndex = 2;
+            // 
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.Controls.Add(this.label4);
@@ -89,18 +99,6 @@
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(425, 36);
             this.flowLayoutPanel3.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.Location = new System.Drawing.Point(100, 3);
-            this.label2.Margin = new System.Windows.Forms.Padding(100, 3, 3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(186, 151);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Click Here For Results";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label4
             // 
@@ -115,16 +113,6 @@
             this.label4.Text = "All Games Played";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel3);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 57);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(429, 213);
-            this.flowLayoutPanel1.TabIndex = 2;
-            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -133,6 +121,18 @@
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(419, 177);
             this.flowLayoutPanel2.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.Location = new System.Drawing.Point(110, 3);
+            this.label2.Margin = new System.Windows.Forms.Padding(110, 3, 3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(186, 151);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Click Here For Results";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Form3
             // 
@@ -146,9 +146,9 @@
             this.Load += new System.EventHandler(this.Form3_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 

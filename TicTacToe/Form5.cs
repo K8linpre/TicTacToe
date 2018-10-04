@@ -25,10 +25,6 @@ namespace TicTacToe
         int player2score;
         int player1moves = 0;
         int player2moves = 0;
-        public static int A1;
-        public static int B1;
-        public static int A2;
-        public static int B2;
         int turn = 1;
         int numCount = 0;
         private Games CurrentGame;
@@ -322,7 +318,6 @@ namespace TicTacToe
                     if (button1.Text == "X")
                     {  
                         player1score++;
-                        History();
                         MessageBox.Show("Player 1 Wins " + player1score + " match(s) in " + player1moves + " moves" + Environment.NewLine + "Player 2 wins " + player2score + " match(s)");
                         score();
                     }
@@ -330,7 +325,6 @@ namespace TicTacToe
                     {
 
                         player2score++;
-                        History();
                         MessageBox.Show("Player 2 Wins " + player2score + " match(s) in " + player2moves + " moves" + Environment.NewLine + "Player 1 wins " + player1score + " match(s)");
                         score();
                     }     
@@ -531,6 +525,7 @@ namespace TicTacToe
             player1moves = 0;
             player2moves = 0;
             turn = 1;
+            display();
             playermove1.Text = player1moves.ToString();
             playermove2.Text = player2moves.ToString();
             playerscore1.Text = player1score.ToString();
@@ -547,10 +542,6 @@ namespace TicTacToe
                 MessageBox.Show("Player 1 Wins Overall!" + Environment.NewLine + "Player 1 Score: " + player1score + " match(s)"
                     + Environment.NewLine + "Player 2 Score: " + player2score + " match(s)");
                 
-        /*        A1 = player1score;
-                B1 = player2score;
-                A2 = player1score; 
-                play2 = A2; */
                 GameOver();              
                 player1score = 0;
                 player2score = 0;
@@ -565,10 +556,6 @@ namespace TicTacToe
                 MessageBox.Show("Player 2 Wins Overall!" + Environment.NewLine + "Player 1 Score: " + player1score + " match(s)"
                     + Environment.NewLine + "Player 2 Score: " + player2score + " match(s)");
 
-                /*      A1 = player1score;
-                      B1 = player2score;
-                      B2 = player1score;
-                      B2 = play3; */
                 GameOver();
                 player1score = 0;
                 player2score = 0;
@@ -580,20 +567,7 @@ namespace TicTacToe
             {
                 ClearGame();
             }
-        }
-        public void History()
-        {
-            if (player1score == 2)
-            {
-                A1 = player1score;
-                B1 = player2score;
-            }
-            if (player1score == 3)
-            {
-                A2 = player1score;
-            }
-        }
-        
+        }        
         private void label1_Click(object sender, EventArgs e)
         {
 
