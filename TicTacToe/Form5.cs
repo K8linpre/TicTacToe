@@ -23,8 +23,6 @@ namespace TicTacToe
         int click9 = 0;
         int player1score;
         int player2score;
-        int play2;
-        int play3;
         int player1moves = 0;
         int player2moves = 0;
         public static int A1;
@@ -33,8 +31,14 @@ namespace TicTacToe
         public static int B2;
         int turn = 1;
         int numCount = 0;
+        private Games CurrentGame;
         public Form5()
         {
+            CurrentGame = new Games
+            {
+                GameId = Program.CompletedGames.Count + 1
+            };
+
             InitializeComponent();
         }
 
@@ -318,6 +322,7 @@ namespace TicTacToe
                     if (button1.Text == "X")
                     {  
                         player1score++;
+                        History();
                         MessageBox.Show("Player 1 Wins " + player1score + " match(s) in " + player1moves + " moves" + Environment.NewLine + "Player 2 wins " + player2score + " match(s)");
                         score();
                     }
@@ -325,6 +330,7 @@ namespace TicTacToe
                     {
 
                         player2score++;
+                        History();
                         MessageBox.Show("Player 2 Wins " + player2score + " match(s) in " + player2moves + " moves" + Environment.NewLine + "Player 1 wins " + player1score + " match(s)");
                         score();
                     }     
@@ -484,12 +490,17 @@ namespace TicTacToe
             }
 
         }
-        public void GameOver() { 
+        public void GameOver() {
+            CurrentGame.Player2Score = player2score;
+            CurrentGame.Player1Score = player1score;
+            Program.CompletedGames.Add(CurrentGame);
+            CurrentGame = new Games {
+                GameId = Program.CompletedGames.Count + 1
+            };
+
         Form6 GameOver= new Form6();
         this.Hide();
         GameOver.ShowDialog();
-            play2 = player1score;
-            play3 = player2score;
         GameOver.FormClosed += new FormClosedEventHandler(cl_FormClosed);
         }
         void cl_FormClosed(object sender, FormClosedEventArgs e)
@@ -530,44 +541,56 @@ namespace TicTacToe
         public void score()
         {
             if (player1score == 2 && player2score == 1
-                ||player1score == 3 && player2score == 0
-                ||play2 == 2 && play3 == 1
-                ||play2 == 3 && play3 == 0)
+                ||player1score == 3 && player2score == 0)
 
             {
                 MessageBox.Show("Player 1 Wins Overall!" + Environment.NewLine + "Player 1 Score: " + player1score + " match(s)"
                     + Environment.NewLine + "Player 2 Score: " + player2score + " match(s)");
-                play2 = A2;
-                play3 = B2;
-                A1 = player1score;
-                B1 = player2score;                
+                
+        /*        A1 = player1score;
+                B1 = player2score;
+                A2 = player1score; 
+                play2 = A2; */
+                GameOver();              
                 player1score = 0;
                 player2score = 0;
 
                 playerscore1.Text = player1score.ToString();
                 playerscore2.Text = player2score.ToString();
-                GameOver();
+                
             }
             else if (player2score == 3 && player1score == 0
-                ||player2score == 2 && player1score == 1
-                || play3 == 2 && play2 == 1
-                || play3 == 3 && play2 == 0)
+                ||player2score == 2 && player1score == 1)
             {
                 MessageBox.Show("Player 2 Wins Overall!" + Environment.NewLine + "Player 1 Score: " + player1score + " match(s)"
                     + Environment.NewLine + "Player 2 Score: " + player2score + " match(s)");
-                A2 = play2;
-                B2 = play3;
-                A1 = player1score;
-                B1 = player2score;  
+
+                /*      A1 = player1score;
+                      B1 = player2score;
+                      B2 = player1score;
+                      B2 = play3; */
+                GameOver();
                 player1score = 0;
                 player2score = 0;
                 playerscore1.Text = player1score.ToString();
                 playerscore2.Text = player2score.ToString();
-                GameOver();
+                
             }
             else
             {
                 ClearGame();
+            }
+        }
+        public void History()
+        {
+            if (player1score == 2)
+            {
+                A1 = player1score;
+                B1 = player2score;
+            }
+            if (player1score == 3)
+            {
+                A2 = player1score;
             }
         }
         

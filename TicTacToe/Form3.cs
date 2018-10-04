@@ -32,13 +32,28 @@ namespace TicTacToe
 
         private void label2_Click(object sender, EventArgs e)
         {
-            int[] array = new int[2];
-
-            for (int num = 1; num < array.Length; num++)
+            foreach (var game in Program.CompletedGames)
             {
+                label2.Text += $" \r\n Game {game.GameId} \r\n Player 1 Score {game.Player1Score} \r\n Player 2 Score {game.Player2Score}";
+            }
 
-                label2.Text = "Game One" + Environment.NewLine + "Player 1 Score : " + Form5.A1 + Environment.NewLine +"Player 2 Score : " + Form5.B1 + Environment.NewLine +
-                   "Game Two" + Environment.NewLine +"Player 1 Score : " + Form5.A2 + Environment.NewLine +"Player 2 Score : " + Form5.B2;
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            foreach (var game in Program.CompletedGames)
+            {
+                label3.Text += $" \r\n Game {game.GameId} \r\n Player 1 Score {game.PlayerScore} \r\n Player 2 Score {game.ComputerScore}";
             }
         }
     }

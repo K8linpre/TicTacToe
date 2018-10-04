@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
@@ -48,7 +47,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
-            this.AImoves = new System.Windows.Forms.Timer(this.components);
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
@@ -206,20 +204,20 @@
             this.label4.Location = new System.Drawing.Point(12, 3);
             this.label4.Margin = new System.Windows.Forms.Padding(12, 3, 3, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.Size = new System.Drawing.Size(36, 13);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Player 1";
+            this.label4.Text = "Player";
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(96, 3);
+            this.label5.Location = new System.Drawing.Point(87, 3);
             this.label5.Margin = new System.Windows.Forms.Padding(36, 3, 3, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 13);
+            this.label5.Size = new System.Drawing.Size(52, 13);
             this.label5.TabIndex = 1;
-            this.label5.Text = "Player 2";
+            this.label5.Text = "Computer";
             // 
             // label7
             // 
@@ -267,9 +265,9 @@
             this.label6.Location = new System.Drawing.Point(47, 15);
             this.label6.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(36, 13);
+            this.label6.Size = new System.Drawing.Size(52, 13);
             this.label6.TabIndex = 1;
-            this.label6.Text = "Player";
+            this.label6.Text = "Computer";
             // 
             // button6
             // 
@@ -281,11 +279,6 @@
             this.button6.TabIndex = 5;
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.playerClick);
-            // 
-            // AImoves
-            // 
-            this.AImoves.Interval = 1000;
-            this.AImoves.Tick += new System.EventHandler(this.AImove);
             // 
             // flowLayoutPanel3
             // 
@@ -391,7 +384,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Timer AImoves;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.Label label2;

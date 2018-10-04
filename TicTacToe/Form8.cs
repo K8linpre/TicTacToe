@@ -23,11 +23,16 @@ namespace TicTacToe
         int Playerscore = 0;
         int Computermoves = 0;
         int Playermoves = 0;
+        private Games CurrentGame;
         public Form8()
         {
+            CurrentGame = new Games
+            {
+                GameId = Program.CompletedGames.Count + 1
+            };
+
             InitializeComponent();
             ClearGame();
-            AImoves.Start();
         }
         
         private void loadbuttons()
@@ -36,7 +41,25 @@ namespace TicTacToe
 
         }
 
-        private void AImove(object sender, EventArgs e)
+        private void playerClick(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            currentPlayer = Player.X;
+            label6.Text = "Computer";
+            button.Text = currentPlayer.ToString();
+            button.Enabled = false;
+            button.ForeColor = Color.Black;
+            button.BackColor = Color.Transparent;
+            buttons.Remove(button);
+            Playermoves++;
+            Playermove1.Text = Playermoves.ToString();
+            WinorDraw();
+            Check();
+            
+            
+
+        }
+        private void AIlogic()
         {
             if (buttons.Count > 0)
             {
@@ -51,43 +74,111 @@ namespace TicTacToe
                 Computermoves++;
                 Computermove1.Text = Computermoves.ToString();
                 Check();
-                
-                AImoves.Stop();
             }
         }
-        private void playerClick(object sender, EventArgs e)
-        {
-            var button = (Button)sender;
-            currentPlayer = Player.X;
-            label6.Text = "Computer";
-            button.Text = currentPlayer.ToString();
-            button.Enabled = false;
-            button.ForeColor = Color.Black;
-            button.BackColor = Color.Transparent;
-            buttons.Remove(button);
-            Playermoves++;
-            Playermove1.Text = Playermoves.ToString();
-     //     WinorDraw();
-            Check();
-            
-            AImoves.Start();
-
-        }
- /*     private void WinorDraw()
-        {
+        private void WinorDraw()
+        {            
             if (button1.Text == "" && button2.Text == "X" && button3.Text == "X"
                 || button1.Text == "" && button4.Text == "X" && button7.Text == "X"
                 || button1.Text == "" && button5.Text == "X" && button9.Text == "X")
             {
-                buttons = new List<Button> { button2 };
+                if (buttons.Contains(button1))
+                {
+                    button1.Text = "O";
+                    button1.Enabled = false;
+                    buttons.Remove(button1);
+                }
             }
             if (button1.Text == "X" && button2.Text == "" && button3.Text == "X"
                 || button2.Text == "" && button5.Text == "X" && button9.Text == "X")
             {
-                buttons = new List<Button> { button2 };
+                if (buttons.Contains(button2))
+                {
+                    button2.Text = "O";
+                    button2.Enabled = false;
+                    buttons.Remove(button2);
+                }
             }
-        }     */
+            if (button1.Text == "X" && button2.Text == "X" && button3.Text == ""
+                || button3.Text == "" && button5.Text == "X" && button7.Text == "X"
+                || button3.Text == "" && button6.Text == "X" && button9.Text == "X")
+            {
+                if (buttons.Contains(button3))
+                {
+                    button3.Text = "O";
+                    button3.Enabled = false;
+                    buttons.Remove(button3);
+                }
+            }
+            if (button4.Text == "" && button5.Text == "X" && button6.Text == "X"
+                || button1.Text == "X" && button4.Text == "" && button7.Text == "X")
+            {
+                if (buttons.Contains(button4))
+                {
+                    button4.Text = "O";
+                    button4.Enabled = false;
+                    buttons.Remove(button4);
+                }
+            }
+            if (button4.Text == "X" && button5.Text == "" && button6.Text == "X"
+                 || button1.Text == "X" && button5.Text == "" && button9.Text == "X"
+                 || button3.Text == "X" && button5.Text == "" && button7.Text == "X")
+            {
+                if (buttons.Contains(button5))
+                {
+                    button5.Text = "O";
+                    button5.Enabled = false;
+                    buttons.Remove(button5);
+                }
+            }
+            if (button4.Text == "X" && button5.Text == "X" && button6.Text == ""
+                 || button3.Text == "X" && button6.Text == "" && button9.Text == "X")
+            {
+                if (buttons.Contains(button6))
+                {
+                    button6.Text = "O";
+                    button6.Enabled = false;
+                    buttons.Remove(button6);
+                }
+            }
+            if (button7.Text == "" && button8.Text == "X" && button9.Text == "X"
+                || button1.Text == "X" && button4.Text == "X" && button7.Text == ""
+                || button3.Text == "X" && button5.Text == "X" && button7.Text == "")
+            {
+                if (buttons.Contains(button7))
+                {
+                    button7.Text = "O";
+                    button7.Enabled = false;
+                    buttons.Remove(button7);
+                }
+            }
+            if (button7.Text == "X" && button8.Text == "" && button9.Text == "X"
+                || button2.Text == "X" && button5.Text == "X" && button8.Text == "")
+            {
+                if (buttons.Contains(button8))
+                {
+                    button8.Text = "O";
+                    button8.Enabled = false;
+                    buttons.Remove(button8);
+                }
+            }
+            if (button7.Text == "X" && button8.Text == "X" && button9.Text == ""
+                || button1.Text == "X" && button5.Text == "X" && button9.Text == ""
+                || button3.Text == "X" && button6.Text == "X" && button9.Text == "")
+            {
+                if (buttons.Contains(button9))
+                {
+                    button9.Text = "O";
+                    button9.Enabled = false;
+                    buttons.Remove(button9);
+                }
+            }
+            else
+            {
+                AIlogic();
+            }
 
+        }
         private void Check()
         {
             if (button1.Text == "X" && button2.Text == "X" && button3.Text == "X"
@@ -99,7 +190,6 @@ namespace TicTacToe
                 || button1.Text == "X" && button5.Text == "X" && button9.Text == "X"
                 || button3.Text == "X" && button5.Text == "X" && button7.Text == "X")
             {
-                AImoves.Stop();
                 Playerscore++;
 
 
@@ -108,7 +198,6 @@ namespace TicTacToe
                 Playermoves = 0;
 
                 ClearGame();
-                
                 score();
             }
             else if (button1.Text == "O" && button2.Text == "O" && button3.Text == "O"
@@ -119,7 +208,6 @@ namespace TicTacToe
                 || button3.Text == "O" && button6.Text == "O" && button9.Text == "O"
                 || button1.Text == "O" && button5.Text == "O" && button9.Text == "O"                || button3.Text == "O" && button5.Text == "O" && button7.Text == "O")
             {
-                AImoves.Stop();
                 Computerscore++;
                 
                 label8.Text = Computerscore.ToString();
@@ -134,10 +222,8 @@ namespace TicTacToe
                 {
                 MessageBox.Show("It's a Draw");
                 ClearGame();
-                
             }
-
-            }
+        }
         public void score()
         {
             if (Computerscore == 2 && Playerscore == 1
@@ -160,6 +246,7 @@ namespace TicTacToe
                 ClearGame();
             }
         }
+
         public void ClearGame()
         {
             button1.Enabled = true;
@@ -185,10 +272,19 @@ namespace TicTacToe
             Playermove1.Text = Playermoves.ToString();
             Computermove1.Text = Computermoves.ToString();
             loadbuttons();
+            AIlogic();
 
         }
         public void GameOver()
         {
+            CurrentGame.PlayerScore = Playerscore;
+            CurrentGame.ComputerScore = Computerscore;
+            Program.CompletedGames.Add(CurrentGame);
+            CurrentGame = new Games
+            {
+                GameId = Program.CompletedGames.Count + 1
+            };
+
             Form6 GameOver = new Form6();
             this.Hide();
             GameOver.ShowDialog();

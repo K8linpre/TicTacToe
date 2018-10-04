@@ -8,12 +8,14 @@ namespace TicTacToe
 {
     static class Program
     {
+        public static List<Games> CompletedGames;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
+            CompletedGames = new List<Games>();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
