@@ -140,7 +140,7 @@
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.Size = new System.Drawing.Size(168, 170);
             this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "Player vs Computer\r\n";
+            this.textBox1.Text = "Player vs Computer";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox2

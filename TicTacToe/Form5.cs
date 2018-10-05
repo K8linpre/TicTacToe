@@ -32,7 +32,7 @@ namespace TicTacToe
         {
             CurrentGame = new Games
             {
-                GameId = Program.CompletedGames.Count + Program.CompCompletedGames.Count + 1
+                GameId = Program.CompletedGames.Count + 1
             };
 
             InitializeComponent();
@@ -470,7 +470,7 @@ namespace TicTacToe
             CurrentGame.Mode = "Player vs Player";
             Program.CompletedGames.Add(CurrentGame);
             CurrentGame = new Games {
-                GameId = Program.CompletedGames.Count + Program.CompCompletedGames.Count + 1
+                GameId = Program.CompletedGames.Count + 1
             };
 
         Form6 GameOver= new Form6();

@@ -40,7 +40,7 @@ namespace TicTacToe
             }
             foreach (var game in Program.CompCompletedGames)
             {
-                textBox1.Text += $"\r\nGame {game.GameId}\r\nPlayer Score: {game.PlayerScore}\r\nComputer Score: {game.ComputerScore}";
+                textBox1.Text += $"\r\nGame {game.CompGameId}\r\nPlayer Score: {game.PlayerScore}\r\nComputer Score: {game.ComputerScore}";
             }
         }
 
