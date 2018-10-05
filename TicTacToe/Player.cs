@@ -84,6 +84,12 @@ namespace TicTacToe
                 click2++;
 
             }
+            else
+            {
+                btn2.Text = btn2.Text;
+            }
+            checkit();
+            numCount++;
         }
         private void btn2_Click(object sender, EventArgs e)
         {
@@ -364,7 +370,7 @@ namespace TicTacToe
 
             if (btn2.Text != "" && btn5.Text != "" && btn8.Text != "")
             {
-                if (btn2.Text == btn8.Text && btn2.Text == btn5.Text)
+                if (btn2.Text == btn5.Text && btn2.Text == btn8.Text)
                 {
                     if (btn2.Text == "X")
                     {
