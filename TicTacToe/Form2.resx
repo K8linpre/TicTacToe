@@ -117,4 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label2.Text" xml:space="preserve">
+    <value>The object of Tic Tac Toe is to get three in a row. 
+
+You play on a three by three game board and the first player in known as X and the second Player is known as O. When you are versing the computer (O), the computer always starts.
+
+Players alternate placing X's and O's on the game board until either opponent has three in a row and wins, or all nine squares are filled and the game ends in a draw. 
+
+If you draw, both players do not get a point. The best of three matches determines the winner for that game.</value>
+  </data>
 </root>

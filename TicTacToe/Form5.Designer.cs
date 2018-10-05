@@ -43,9 +43,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.playerscore1 = new System.Windows.Forms.Label();
             this.playerscore2 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -53,9 +50,9 @@
             this.playermove2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.button10 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +63,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 161F));
+            this.tableLayoutPanel1.Controls.Add(this.button10, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.button3, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.button2, 1, 0);
@@ -75,9 +73,8 @@
             this.tableLayoutPanel1.Controls.Add(this.button8, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.button4, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.button7, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel3, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 41);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -193,7 +190,7 @@
             this.flowLayoutPanel1.Controls.Add(this.label5);
             this.flowLayoutPanel1.Controls.Add(this.playerscore1);
             this.flowLayoutPanel1.Controls.Add(this.playerscore2);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(165, 273);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 273);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(156, 44);
             this.flowLayoutPanel1.TabIndex = 11;
@@ -240,35 +237,6 @@
             this.playerscore2.Size = new System.Drawing.Size(13, 13);
             this.playerscore2.TabIndex = 3;
             this.playerscore2.Text = "0";
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this.label3);
-            this.flowLayoutPanel2.Controls.Add(this.label6);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 273);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(156, 44);
-            this.flowLayoutPanel2.TabIndex = 12;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 15);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Turn : ";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(47, 15);
-            this.label6.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 13);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Player 1";
             // 
             // flowLayoutPanel3
             // 
@@ -346,23 +314,34 @@
             this.label1.Size = new System.Drawing.Size(408, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tic Tac Toe - Player vs Player";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // button10
+            // 
+            this.button10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.Location = new System.Drawing.Point(168, 280);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(150, 30);
+            this.button10.TabIndex = 16;
+            this.button10.Text = "Back To Game Modes";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(485, 362);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.MaximumSize = new System.Drawing.Size(501, 401);
             this.Name = "Form5";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form5";
+            this.Text = "Player vs Player";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -388,9 +367,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label playerscore1;
         private System.Windows.Forms.Label playerscore2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
@@ -398,5 +374,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label playermove1;
         private System.Windows.Forms.Label playermove2;
+        private System.Windows.Forms.Button button10;
     }
 }

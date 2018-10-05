@@ -30,25 +30,24 @@ namespace TicTacToe
             Application.Exit();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-            foreach (var game in Program.CompletedGames)
-            {
-                label2.Text += $" \r\n Game {game.GameId} \r\n Player 1 Score {game.Player1Score} \r\n Player 2 Score {game.Player2Score}";
-            }
 
-        }
 
         private void Form3_Load(object sender, EventArgs e)
         {
-
+            foreach (var game in Program.CompletedGames)
+            {
+                textBox2.Text += $"\r\nGame {game.GameId}\r\nPlayer 1 Score: {game.Player1Score}\r\nPlayer 2 Score: {game.Player2Score}";
+            }
+            foreach (var game in Program.CompCompletedGames)
+            {
+                textBox1.Text += $"\r\nGame {game.GameId}\r\nPlayer Score: {game.PlayerScore}\r\nComputer Score: {game.ComputerScore}";
+            }
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
 
         }
-
 
     }
 }

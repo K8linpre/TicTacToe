@@ -32,7 +32,7 @@ namespace TicTacToe
         {
             CurrentGame = new Games
             {
-                GameId = Program.CompletedGames.Count + 1
+                GameId = Program.CompletedGames.Count + Program.CompCompletedGames.Count + 1
             };
 
             InitializeComponent();
@@ -64,7 +64,6 @@ namespace TicTacToe
             {
                 button1.Text = button1.Text;
             }
-            display();
             checkit();
             numCount++;
         }
@@ -94,7 +93,6 @@ namespace TicTacToe
             {
                 button2.Text = button2.Text;
             }
-            display();
             checkit();
             numCount++;
         }
@@ -122,7 +120,6 @@ namespace TicTacToe
             {
                 button3.Text = button3.Text;
             }
-            display();
             checkit();
             numCount++;
         }
@@ -150,7 +147,6 @@ namespace TicTacToe
             {
                 button4.Text = button4.Text;
             }
-            display();
             checkit();
             numCount++;
         }
@@ -178,7 +174,6 @@ namespace TicTacToe
             {
                 button5.Text = button5.Text;
             }
-            display();
             checkit();
             numCount++;
         }
@@ -207,7 +202,6 @@ namespace TicTacToe
             {
                 button6.Text = button6.Text;
             }
-            display();
             checkit();
             numCount++;
         }
@@ -236,7 +230,6 @@ namespace TicTacToe
             {
                 button7.Text = button7.Text;
             }
-            display();
             checkit();
             numCount++;
         }
@@ -265,7 +258,6 @@ namespace TicTacToe
             {
                 button8.Text = button8.Text;
             }
-            display();
             checkit();
             numCount++;
         }
@@ -294,20 +286,8 @@ namespace TicTacToe
             {
                 button9.Text = button9.Text;
             }
-            display();
             checkit();
             numCount++;
-        }
-        public void display()
-        {
-            if (turn % 2 != 0)
-            {
-                label6.Text = "Player 1";
-            }
-            else
-            {
-                label6.Text = "Player 2";
-            }
         }
         public void checkit()
         {
@@ -487,9 +467,10 @@ namespace TicTacToe
         public void GameOver() {
             CurrentGame.Player2Score = player2score;
             CurrentGame.Player1Score = player1score;
+            CurrentGame.Mode = "Player vs Player";
             Program.CompletedGames.Add(CurrentGame);
             CurrentGame = new Games {
-                GameId = Program.CompletedGames.Count + 1
+                GameId = Program.CompletedGames.Count + Program.CompCompletedGames.Count + 1
             };
 
         Form6 GameOver= new Form6();
@@ -525,7 +506,6 @@ namespace TicTacToe
             player1moves = 0;
             player2moves = 0;
             turn = 1;
-            display();
             playermove1.Text = player1moves.ToString();
             playermove2.Text = player2moves.ToString();
             playerscore1.Text = player1score.ToString();
@@ -580,6 +560,14 @@ namespace TicTacToe
         private void label9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Form4 Mode = new Form4();
+            this.Hide();
+            Mode.ShowDialog();
+            Mode.FormClosed += new FormClosedEventHandler(cl_FormClosed);
         }
     }
 }
